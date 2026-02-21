@@ -1,0 +1,37 @@
+.heroGlow {
+  position: relative;
+}
+
+.heroGlow::before {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.12), transparent 60%);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+.softCard {
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.textBalance {
+  text-wrap: balance;
+}
+
+.gridAuto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.hoverLift {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hoverLift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}

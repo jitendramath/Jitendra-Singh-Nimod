@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🔥 Smooth font rendering */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* 🧠 selection color */
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+/* 🔗 link styling */
+a {
+  transition: all 0.2s ease;
+}
+
+/* 🪄 premium container utility */
+.container-premium {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+/* 👑 gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🧊 glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 🟦 premium button */
+.btn-premium {
+  @apply px-6 py-3 rounded-xl bg-black text-white font-semibold 
+  hover:bg-blue-600 transition duration-300;
+}
+
+/* 🧾 section spacing */
+.section {
+  @apply py-16 md:py-24;
+}
+
+/* 🖼 image shadow */
+.img-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 🧠 SEO text readable width */
+.seo-text {
+  @apply max-w-3xl leading-relaxed text-zinc-700;
+}
+
+/* ✨ subtle animation */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
