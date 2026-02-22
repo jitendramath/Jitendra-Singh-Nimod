@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Rajputo ka Nimod | Nimod Rajasthan Rajput | Jitendra Singh Nimod",
+  title: "Rajputo ka bada/dhani Nimod | Nimod Rajasthan Rajput | Jitendra Singh Nimod",
   description:
-    "Rajputo ka Nimod related to Nimod village Rajasthan and Jitendra Singh Nimod, also known as JS Nimod and Jitu Rajput from Nimod.",
+    "Rajputo ka bada/dhani Nimod related to Nimod village Rajasthan and Jitendra Singh Nimod, also known as JS Nimod and Jitu Rajput from Nimod.",
 };
 
 export default function Page() {
