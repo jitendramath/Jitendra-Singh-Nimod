@@ -98,7 +98,7 @@ export default function HomePage() {
             Official Social & Professional Profiles
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <a href="https://github.com/jitendra-math" target="_blank" className="p-4 bg-white border font-bold text-center hover:bg-slate-900 hover:text-white transition">GitHub</a>
+            <a href="https://github.com/jitendramath" target="_blank" className="p-4 bg-white border font-bold text-center hover:bg-slate-900 hover:text-white transition">GitHub</a>
             <a href="https://linkedin.com/in/jitendra-singh07" target="_blank" className="p-4 bg-white border font-bold text-center hover:bg-blue-600 hover:text-white transition">LinkedIn</a>
             <a href="https://x.com/jitendranimod" target="_blank" className="p-4 bg-white border font-bold text-center hover:bg-black hover:text-white transition">Twitter / X</a>
             <a href="https://instagram.com/jitendra.07_7" target="_blank" className="p-4 bg-white border font-bold text-center hover:bg-pink-600 hover:text-white transition">Instagram</a>
