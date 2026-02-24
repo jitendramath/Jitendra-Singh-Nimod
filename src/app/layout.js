@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
     description:
       "Full Stack Web Developer from Rajasthan, India and Founder of JSS Originals.",
     sameAs: [
-      "https://github.com/jitendramath",
+      "https://github.com/jitendra-math",
       "https://www.instagram.com/jitendra.07_7",
       "https://www.linkedin.com/in/jitendra-singh07",
       "https://x.com/jitendranimod",
