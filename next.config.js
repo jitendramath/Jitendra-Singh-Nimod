@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
 
@@ -8,8 +7,18 @@ const nextConfig = {
   },
 
   compress: true,
-
   poweredByHeader: false,
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "jitendrasingh.online" }],
+        destination: "https://www.jitendrasingh.online/:path*",
+        permanent: true,
+      },
+    ];
+  },
 
   async headers() {
     return [
