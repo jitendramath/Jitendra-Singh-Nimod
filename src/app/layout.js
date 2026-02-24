@@ -21,7 +21,14 @@ export const metadata = {
     "Full Stack Developer Rajasthan",
     "JSS Originals",
   ],
+icons: {
+  icon: "/favicon.ico",
+  shortcut: "/favicon-16x16.png",
+  apple: "/apple-touch-icon.png",
+},
 
+manifest: "/site.webmanifest",
+  
   openGraph: {
     title: "Jitendra Singh Nimod — Official Website",
     description:
