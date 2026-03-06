@@ -1,248 +1,191 @@
 // app/page.js
 
 import Image from "next/image";
+import Link from "next/link";
 import identity from "../data/identity";
 import StructuredData from "../components/StructuredData";
+import { 
+  Github, 
+  Linkedin, 
+  Twitter, 
+  Youtube, 
+  Instagram, 
+  BookOpen, 
+  Globe, 
+  TerminalSquare, 
+  Rss, 
+  ArrowRight,
+  Info,
+  ExternalLink
+} from "lucide-react";
 
+// 📌 ULTRA-OPTIMIZED SEO METADATA
 export const metadata = {
   metadataBase: new URL("https://me.jitubanna.com"),
-  title: "Jitendra Singh Nimod — Official Website | Full Stack Developer Rajasthan",
+  title: "Jitendra Singh Nimod | Full Stack Developer & Founder",
   description:
-    "Official portfolio of Jitendra Singh Nimod (JS Nimod). Full Stack Developer, Founder of JSS Originals, and B.Sc Mathematics student from Rajasthan.",
+    "The digital identity archive of Jitendra Singh Nimod (JS Nimod). Full Stack Developer, Founder of JSS Originals, and creator of premium digital experiences.",
   keywords: [
     "Jitendra Singh Nimod",
     "Jitendra Nimod",
     "Jitu Nimod",
     "JS Nimod",
-    "Jitendra Singh Developer",
-    "Jitendra Singh Rajasthan",
-    "JSS Originals Founder",
-    "Full Stack Developer Nimod",
-    "Jitendra Singh Shekhawat",
-    "Jitendra Singh Rajput",
+    "JSS Originals",
+    "Full Stack Developer Rajasthan",
     "Jitu Banna Developer",
+    "Jitendra Singh Shekhawat",
   ],
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
-    title: "Jitendra Singh Nimod Official",
-    description: "Verified website of Jitendra Singh Nimod. Developer from Rajasthan.",
+    title: "Jitendra Singh Nimod — Digital Identity",
+    description: "Verified identity archive of Jitendra Singh Nimod. Developer, Founder, and Tech Enthusiast from Rajasthan.",
     url: "https://me.jitubanna.com",
     siteName: "Jitendra Singh Nimod",
     type: "profile",
-    images: [{ url: "/images/og/og-main.jpg" }],
+    images: [{ url: "/images/og/og-main.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jitendra Singh Nimod",
+    description: "Full Stack Developer & Founder of JSS Originals.",
+    creator: "@jitendranimod",
   },
 };
 
 export default function HomePage() {
   return (
-    <main className="bg-[#0b0b0f] text-white min-h-screen font-sans relative overflow-hidden">
-
+    <main className="bg-black text-zinc-100 min-h-screen font-sans selection:bg-white/20 relative overflow-hidden">
       <StructuredData />
 
-      {/* ===== BACKGROUND BLOBS ===== */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-purple-600 opacity-30 blur-[160px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-600 opacity-30 blur-[160px] rounded-full"></div>
-      <div className="absolute top-[40%] left-[40%] w-[500px] h-[500px] bg-indigo-600 opacity-20 blur-[140px] rounded-full"></div>
+      {/* ===== SUBTLE APPLE-LIKE GLOWS ===== */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-zinc-800/30 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-zinc-900/40 blur-[150px] rounded-full pointer-events-none"></div>
 
-      {/* ===== NOTICE BOX ===== */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-12">
-
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-[2px] rounded-2xl mb-12">
-          <div className="bg-[#0b0b0f] rounded-2xl p-6 text-center">
-            <p className="text-sm md:text-base text-slate-300">
-              ⚠️ This website is part of the identity archive of{" "}
-              <strong>Jitendra Singh Nimod</strong>.
-            </p>
-
-            <p className="mt-3 text-lg md:text-xl font-bold">
-              The official and primary website is:
-            </p>
-
+      <div className="max-w-5xl mx-auto px-6 py-12 md:py-24 relative z-10">
+        
+        {/* ===== PREMIUM NOTICE BANNER ===== */}
+        <div className="mb-20 animate-fade-in">
+          <div className="bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl transition-all hover:bg-white/[0.05]">
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-white/[0.05] rounded-full border border-white/[0.1]">
+                <Info className="w-6 h-6 text-zinc-400" />
+              </div>
+              <div>
+                <p className="text-zinc-400 text-sm font-medium tracking-wide uppercase mb-1">
+                  Identity Archive
+                </p>
+                <p className="text-zinc-300">
+                  This page serves as the digital footprint for <strong>Jitendra Singh Nimod</strong>.
+                </p>
+              </div>
+            </div>
             <a
               href="https://jitubanna.com"
-              className="inline-block mt-4 text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-all duration-300"
             >
-              https://jitubanna.com
+              Visit Primary Site
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
+          </div>
+        </div>
 
-            <p className="mt-3 text-xs text-slate-500">
-              This page exists for search indexing and identity documentation.
+        {/* ===== HERO SECTION ===== */}
+        <section className="flex flex-col md:flex-row items-center justify-between gap-16 mb-32">
+          <div className="flex-1 space-y-8">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
+              Jitendra <br />
+              Singh Nimod
+            </h1>
+            
+            <p className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg font-light">
+              Full Stack Developer & Founder of <span className="text-white font-medium">{identity.brand || "JSS Originals"}</span>. Crafting scalable web applications and premium digital ecosystems from Rajasthan.
             </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Link
+                href="/about"
+                className="px-8 py-3.5 bg-white/[0.08] border border-white/[0.1] text-white font-medium rounded-full hover:bg-white/[0.15] backdrop-blur-md transition-all duration-300 flex items-center gap-2"
+              >
+                Read Biography
+              </Link>
+              <Link
+                href="/contact"
+                className="px-8 py-3.5 text-zinc-400 hover:text-white font-medium transition-colors flex items-center gap-2"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
-        </div>
 
-      </section>
-
-      {/* ===== HERO ===== */}
-      <section className="relative z-10 max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
-
-        <div>
-          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Jitendra
-            <br />
-            Singh
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-              {" "}
-              Nimod
-            </span>
-          </h1>
-
-          <p className="text-xl text-slate-300 mb-6">
-            Full Stack Developer • Founder of {identity.brand}
-          </p>
-
-          <p className="text-slate-400 leading-relaxed max-w-xl mb-10">
-            Welcome to the digital identity of{" "}
-            <strong>Jitendra Singh Nimod</strong>, also known as{" "}
-            <strong>JS Nimod</strong> and <strong>Jitu Nimod</strong>.  
-            A developer from Rajasthan focused on building scalable web
-            applications, modern interfaces and AI-driven digital systems.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-
-            <a
-              href="/about"
-              className="px-8 py-3 bg-white text-black font-bold rounded-xl hover:scale-105 transition"
-            >
-              About
-            </a>
-
-            <a
-              href="/contact"
-              className="px-8 py-3 border border-white/30 rounded-xl hover:bg-white/10 transition"
-            >
-              Contact
-            </a>
-
+          {/* PROFILE IMAGE WITH SUBTLE AURA */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-b from-white/20 to-transparent rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-700"></div>
+            <div className="relative w-[280px] h-[350px] md:w-[320px] md:h-[400px] rounded-[2rem] overflow-hidden border border-white/[0.1] bg-zinc-900 shadow-2xl">
+              <Image
+                src={identity.images?.main || "/placeholder.jpg"}
+                alt="Jitendra Singh Nimod"
+                fill
+                priority
+                className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
+              />
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* IMAGE */}
-        <div className="flex justify-center">
-          <div className="relative w-[320px] h-[320px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
-            <Image
-              src={identity.images.main}
-              alt="Jitendra Singh Nimod"
-              fill
-              priority
-              className="object-cover"
-            />
+        {/* ===== OFFICIAL PROFILES (BENTO GRID) ===== */}
+        <section className="mb-32">
+          <div className="flex items-center gap-4 mb-10">
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            <h2 className="text-xl font-medium text-zinc-300 tracking-wide uppercase">Official Footprint</h2>
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
-        </div>
 
-      </section>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {[
+              { name: "GitHub", href: "https://github.com/jitendra-math", icon: Github },
+              { name: "LinkedIn", href: "https://linkedin.com/in/jitendra-singh07", icon: Linkedin },
+              { name: "X / Twitter", href: "https://x.com/jitendranimod", icon: Twitter },
+              { name: "YouTube", href: "https://youtube.com/@jitendranimod", icon: Youtube },
+              { name: "Instagram", href: "https://instagram.com/jitendra.07_7", icon: Instagram },
+              { name: "Medium", href: "https://medium.com/@i.jitendra.singh0", icon: BookOpen },
+              { name: "Dev.to", href: "https://dev.to/jitendrasingh", icon: TerminalSquare },
+              { name: "Hashnode", href: "https://jitendrasinghnimod.hashnode.dev", icon: Code2 },
+              { name: "About.me", href: "https://about.me/jitendrasinghnimod", icon: Info },
+              { name: "Reddit", href: "https://www.reddit.com/user/jitendranimod", icon: Globe },
+              { name: "Product Hunt", href: "https://www.producthunt.com/@jitendra_nimod", icon: ExternalLink },
+              { name: "Linktree", href: "https://linktr.ee/jitendranimod", icon: Globe },
+              { name: "RSS Feed", href: "/rss.xml", icon: Rss },
+            ].map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                target={link.name === "RSS Feed" ? "_self" : "_blank"}
+                rel={link.name === "RSS Feed" ? "" : "noopener noreferrer"}
+                className="group flex flex-col items-center justify-center p-6 bg-white/[0.02] border border-white/[0.05] rounded-2xl hover:bg-white/[0.06] hover:border-white/[0.1] transition-all duration-300 hover:-translate-y-1"
+              >
+                <link.icon className="w-6 h-6 mb-3 text-zinc-500 group-hover:text-white transition-colors" />
+                <span className="text-sm font-medium text-zinc-400 group-hover:text-zinc-200">
+                  {link.name}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
 
-      <section className="relative z-10 py-16 border-t border-white/10">
-
-  <div className="max-w-6xl mx-auto px-6">
-
-    <h2 className="text-center text-2xl font-bold mb-10">
-      Official Profiles
-    </h2>
-
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-
-      <a href="https://github.com/jitendra-math" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        GitHub
-      </a>
-
-      <a href="https://linkedin.com/in/jitendra-singh07" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        LinkedIn
-      </a>
-
-      <a href="https://x.com/jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        X / Twitter
-      </a>
-
-      <a href="https://medium.com/@i.jitendra.singh0" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Medium
-      </a>
-
-      <a href="https://dev.to/jitendrasingh" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Dev.to
-      </a>
-
-      <a href="https://jitendrasinghnimod.hashnode.dev" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Hashnode
-      </a>
-
-      <a href="https://about.me/jitendrasinghnimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        About.me
-      </a>
-
-      <a href="https://youtube.com/@jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        YouTube
-      </a>
-
-      <a href="https://instagram.com/jitendra.07_7" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Instagram
-      </a>
-
-      <a href="https://www.reddit.com/user/jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Reddit
-      </a>
-
-      <a href="https://www.producthunt.com/@jitendra_nimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Product Hunt
-      </a>
-
-      <a href="https://www.pinterest.com/jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Pinterest
-      </a>
-
-      <a href="https://www.tumblr.com/jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Tumblr
-      </a>
-
-      <a href="https://linktr.ee/jitendranimod" target="_blank" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        Linktree
-      </a>
-
-      <a href="/rss.xml" className="p-4 bg-white/5 rounded-xl text-center hover:bg-white/10 transition">
-        RSS Feed
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-      {/* ===== ABOUT SECTION ===== */}
-      <section className="relative z-10 py-20">
-
-        <div className="max-w-4xl mx-auto px-6 text-center">
-
-          <h2 className="text-4xl font-black mb-8">
+        {/* ===== ABOUT / CLOSING SECTION ===== */}
+        <section className="text-center max-w-3xl mx-auto space-y-6">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-zinc-100">
             Who is Jitendra Singh Nimod?
           </h2>
-
-          <p className="text-slate-300 leading-relaxed mb-6">
-            <strong>Jitendra Singh Nimod</strong> is a full stack developer
-            from Rajasthan, India. He is the founder of{" "}
-            <strong>JSS Originals</strong> and actively builds web
-            applications, developer tools and digital identity systems.
+          <p className="text-zinc-400 leading-relaxed text-lg font-light">
+            Also known as <strong>JS Nimod</strong> and <strong>Jitu Nimod</strong>, he is a developer dedicated to merging high-performance architecture with premium, user-centric design. From building comprehensive digital identity systems to crafting specialized developer tools, his work emphasizes both aesthetic minimalism and robust SEO architecture.
           </p>
+        </section>
 
-          <p className="text-slate-400 leading-relaxed">
-            Known by multiple names such as <strong>Jitu Nimod</strong>,
-            <strong> JS Nimod</strong>, and <strong>Jitendra Nimod</strong>,
-            he focuses on combining modern web technologies with strong
-            search-engine presence and developer ecosystems.
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer className="border-t border-white/10 py-10 text-center text-slate-500 text-sm">
-
-        © {new Date().getFullYear()} Jitendra Singh Nimod • Digital Identity Archive
-
-      </footer>
-
+      </div>
     </main>
   );
 }
