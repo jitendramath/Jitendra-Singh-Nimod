@@ -16,6 +16,7 @@ import {
   Rss, 
   ArrowRight,
   Info,
+  Code2,
   ExternalLink
 } from "lucide-react";
 
