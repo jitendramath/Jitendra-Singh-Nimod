@@ -4,6 +4,7 @@ const identity = {
   shortName: "Jitendra Nimod",
 
   alternateNames: [
+    "Jitu Banna",
     "Jitendra Nimod",
     "Jitu Nimod",
     "JS Nimod",
