@@ -4,7 +4,7 @@ import Link from "next/link";
 import { 
   Network, 
   UserCircle, 
-  Code3, 
+  Code2, 
   GraduationCap, 
   Fingerprint, 
   MapPin, 
@@ -98,7 +98,7 @@ export default function Page() {
             
             {/* Card 1 */}
             <div className="p-8 rounded-[2rem] border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-colors group">
-              <Code3 className="w-8 h-8 text-zinc-500 mb-6 group-hover:text-white transition-colors" />
+              <Code2 className="w-8 h-8 text-zinc-500 mb-6 group-hover:text-white transition-colors" />
               <h3 className="text-xl font-medium text-white mb-3">Developer Profile</h3>
               <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
                 Focuses on the technical architecture. Highlights expertise in modern frameworks like Next.js and Svelte, and the creation of high-performance PWAs and mobile-first tools.
