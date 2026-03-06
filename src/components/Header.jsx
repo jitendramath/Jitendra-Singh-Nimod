@@ -15,9 +15,9 @@ export default function Header() {
           
           <Link href="/" className="group pl-2 flex items-center gap-2">
             <span className="text-xl md:text-2xl font-black tracking-tighter text-white group-hover:opacity-80 transition-opacity">
-              JS
+              J
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
-                .
+                S
               </span>
             </span>
           </Link>
