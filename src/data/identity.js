@@ -44,10 +44,7 @@ const identity = {
   dob: "2009-05-14",
   profession: "Full Stack Web Developer",
 
-  brand: {
-    name: "JSS Originals",
-    founder: "Jitendra Singh Nimod",
-  },
+  brand: "JSS Originals",
 
   // 🌐 DOMAINS
   domains: {
