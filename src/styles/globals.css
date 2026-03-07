@@ -263,3 +263,32 @@ a {
 .link-underline:hover::after {
   width: 100%;
 }
+
+/* =====================================================
+   GLOBAL NAVBAR OFFSET (FIX FOR FIXED HEADER)
+   Prevents content from hiding under the navbar
+===================================================== */
+
+:root {
+  --navbar-height: 110px; /* desktop navbar space */
+}
+
+body {
+  padding-top: var(--navbar-height);
+}
+
+/* Mobile optimization */
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 95px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 85px;
+  }
+}
