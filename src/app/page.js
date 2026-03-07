@@ -56,7 +56,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="bg-black text-zinc-100 min-h-screen font-sans selection:bg-white/20 relative overflow-hidden">
+    <main className="bg-black pt-10 text-zinc-100 min-h-screen font-sans selection:bg-white/20 relative overflow-hidden">
       <StructuredData />
 
       {/* ===== SUBTLE APPLE-LIKE GLOWS ===== */}
