@@ -1,5 +1,5 @@
-// src/app/identity/jitendra-singh/page.js
-// Ultra-premium identity page for Jitendra Singh alias
+// src/app/identity/jitendra-nimod/page.js
+// Ultra-premium identity page for Jitendra Nimod alias
 
 import Link from "next/link";
 import Image from "next/image";
@@ -27,40 +27,43 @@ import {
   CheckCircle,
   Star,
   Hash,
-  ExternalLink
+  ExternalLink,
+  BookOpen,
+  Clock,
+  Target
 } from "lucide-react";
 
 export const metadata = {
-  title: "Jitendra Singh – Identity Clarification | Jitendra Singh Nimod",
+  title: "Jitendra Nimod – Official Profile | Jitendra Singh Nimod",
   description:
-    "Jitendra Singh refers to Jitendra Singh Nimod, also known as Jitendra Nimod, Jitu Nimod and JS Nimod. Full Stack Developer from Rajasthan, India.",
+    "Jitendra Nimod is the commonly searched name of Jitendra Singh Nimod, also known as Jitu Nimod and JS Nimod. Full Stack Developer from Rajasthan, India.",
   keywords: [
-    "Jitendra Singh",
+    "Jitendra Nimod",
+    "Jitendra Nimod developer",
+    "Jitendra Nimod Rajasthan",
+    "Jitendra Nimod student",
     "Jitendra Singh Nimod",
-    "Jitendra Singh developer",
-    "Jitendra Singh Rajasthan",
     "JS Nimod",
-    "Jitu Singh",
-    "Jitendra Singh web developer"
+    "Jitu Nimod"
   ],
-  alternates: { canonical: "/identity/jitendra-singh" },
+  alternates: { canonical: "/identity/jitendra-nimod" },
   openGraph: {
-    title: "Jitendra Singh – Identity Clarification",
+    title: "Jitendra Nimod – Official Profile",
     description:
-      "Jitendra Singh is the short name for Jitendra Singh Nimod, a Full Stack Developer from Rajasthan.",
-    images: [{ url: "/images/og/jitendra-singh-og.jpg", width: 1200, height: 630 }],
+      "Jitendra Nimod is the commonly searched name of Jitendra Singh Nimod, a Full Stack Developer from Rajasthan.",
+    images: [{ url: "/images/og/jitendra-nimod-og.jpg", width: 1200, height: 630 }],
   },
 };
 
-export default function JitendraSinghPage() {
+export default function JitendraNimodPage() {
   // JSON-LD for better entity understanding
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Jitendra Singh",
-    alternateName: ["Jitendra Singh Nimod", "Jitendra Nimod", "Jitu Nimod", "JS Nimod"],
+    name: "Jitendra Nimod",
+    alternateName: ["Jitendra Singh Nimod", "Jitu Nimod", "JS Nimod"],
     description: "Full Stack Web Developer and B.Sc Mathematics student from Rajasthan, India.",
-    url: "https://me.jitubanna.com/identity/jitendra-singh",
+    url: "https://me.jitubanna.com/identity/jitendra-nimod",
     sameAs: [
       "https://github.com/jitendra-math",
       "https://linkedin.com/in/jitendra-singh07",
@@ -70,7 +73,7 @@ export default function JitendraSinghPage() {
 
   const quickStats = [
     { label: "Full Name", value: identity.name, icon: User },
-    { label: "Also Known As", value: "Jitendra Singh", icon: Hash },
+    { label: "Commonly Known As", value: "Jitendra Nimod", icon: Hash },
     { label: "Location", value: `${identity.location.city}, ${identity.location.state}`, icon: MapPin },
     { label: "Profession", value: "Full Stack Developer", icon: Code2 },
     { label: "Education", value: "B.Sc Mathematics", icon: GraduationCap },
@@ -79,9 +82,9 @@ export default function JitendraSinghPage() {
 
   const otherNames = [
     { name: "Jitendra Singh Nimod", path: "/identity/jitendra-singh-nimod" },
-    { name: "Jitendra Nimod", path: "/identity/jitendra-nimod" },
     { name: "Jitu Nimod", path: "/identity/jitu-nimod" },
     { name: "JS Nimod", path: "/identity/js-nimod" },
+    { name: "Jitendra Singh", path: "/identity/jitendra-singh" },
     { name: "Jitubanna", path: "/jitubanna-identity" },
     { name: "Jitu Banna", path: "/jitu-banna" }
   ];
@@ -113,17 +116,17 @@ export default function JitendraSinghPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-zinc-800 leading-tight mb-4">
-                Jitendra Singh
+                Jitendra Nimod
               </h1>
 
               <p className="text-lg md:text-xl text-[#2563EB] font-medium mb-2">
-                Short name for {identity.name}
+                Commonly searched name for {identity.name}
               </p>
 
               <p className="text-base text-zinc-600 max-w-2xl mx-auto md:mx-0 leading-relaxed mb-6">
-                <strong className="text-[#2563EB]">Jitendra Singh</strong> is commonly used as a short name for{' '}
-                <strong>{identity.name}</strong>, a Full Stack Web Developer and B.Sc Mathematics student from{' '}
-                {identity.location.state}, India. Also known as <strong>Jitendra Nimod, Jitu Nimod, and JS Nimod</strong>.
+                <strong className="text-[#2563EB]">Jitendra Nimod</strong> is the commonly searched name of{' '}
+                <strong>{identity.name}</strong>, a Full Stack Web Developer from{' '}
+                {identity.location.state}, India. Also known as <strong>Jitu Nimod and JS Nimod</strong>.
               </p>
 
               <div className="flex flex-wrap gap-3 justify-center md:justify-start">
@@ -186,51 +189,46 @@ export default function JitendraSinghPage() {
         <section className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 mb-20">
           <div className="bg-white/80 backdrop-blur-sm border border-zinc-200 rounded-3xl p-8 md:p-10 shadow-xl">
             <h2 className="text-2xl md:text-3xl font-bold text-zinc-800 mb-6">
-              About Jitendra Singh
+              About Jitendra Nimod
             </h2>
             
             <div className="prose prose-zinc max-w-none space-y-4">
               <p className="text-zinc-600 leading-relaxed">
-                <strong className="text-[#2563EB]">Jitendra Singh</strong> is commonly used as a short name for{' '}
-                <strong>{identity.name}</strong>, a Full Stack Web Developer and B.Sc Mathematics student from{' '}
-                {identity.location.state}, {identity.location.country}.
+                <strong className="text-[#2563EB]">Jitendra Nimod</strong> is the commonly searched name of{' '}
+                <strong>{identity.name}</strong>, a Full Stack Web Developer from {identity.location.state},{' '}
+                {identity.location.country}.
               </p>
 
               <p className="text-zinc-600 leading-relaxed">
                 He is also known as <strong>{identity.alternateNames.join(", ")}</strong>. All these names refer to 
-                the same individual — {identity.name}.
+                the same individual.
               </p>
 
               <p className="text-zinc-600 leading-relaxed">
-                Many users search online for <strong>"Jitendra Singh developer"</strong> or{' '}
-                <strong>"Jitendra Singh Rajasthan"</strong>. These searches refer to {identity.name}, who is based 
-                in {identity.location.city}, Rajasthan.
+                Jitendra Nimod is currently pursuing {identity.education.degree} at {identity.education.college} and is
+                actively building modern web applications and digital platforms.
               </p>
 
               <p className="text-zinc-600 leading-relaxed">
-                {identity.shortName} is currently pursuing {identity.education.degree} at {identity.education.college} 
-                and is actively working on full stack web development and digital projects.
-              </p>
-
-              <p className="text-zinc-600 leading-relaxed">
-                Under his brand <strong>{identity.brand}</strong>, he builds modern web applications, developer tools 
-                and SEO-optimized platforms.
-              </p>
-
-              <p className="text-zinc-600 leading-relaxed">
-                The official identity and website of Jitendra Singh Nimod is{' '}
-                <strong className="text-[#2563EB]">{identity.website}</strong>.
+                Based in {identity.location.city}, Rajasthan, he develops scalable and SEO-optimized websites under the brand{' '}
+                <strong>{identity.brand}</strong>.
               </p>
 
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mt-6">
                 <p className="text-amber-800 text-sm flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                   <span>
-                    If you searched for <strong>Jitendra Singh from Rajasthan</strong> related to web development or 
-                    digital projects, this is the official identity website confirming his details.
+                    If you searched for <strong>“Jitendra Nimod developer”</strong>,{' '}
+                    <strong>“Jitendra Nimod Rajasthan”</strong> or <strong>“Jitendra Nimod student”</strong>, this official 
+                    website confirms his professional and academic identity.
                   </span>
                 </p>
               </div>
+
+              <p className="text-zinc-600 leading-relaxed font-medium border-l-4 border-[#2563EB] pl-4">
+                The official and complete name is <strong>{identity.name}</strong>, but Jitendra Nimod is widely used
+                across the internet.
+              </p>
             </div>
           </div>
         </section>
@@ -265,7 +263,7 @@ export default function JitendraSinghPage() {
           <h2 className="text-2xl font-bold text-zinc-800 mb-6 text-center">Related Identity Pages</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: "Jitendra Nimod", path: "/identity/jitendra-nimod" },
+              { name: "Jitendra Singh", path: "/identity/jitendra-singh" },
               { name: "Jitu Nimod", path: "/identity/jitu-nimod" },
               { name: "JS Nimod", path: "/identity/js-nimod" },
               { name: "Nimod Jitu", path: "/identity/nimod-jitu" }
@@ -285,7 +283,7 @@ export default function JitendraSinghPage() {
         {/* ===== CTA SECTION ===== */}
         <section className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 mb-16">
           <div className="bg-gradient-to-br from-[#2563EB] to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Know the Real Jitendra Singh</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Know the Real Jitendra Nimod</h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
               Connect with Jitendra Singh Nimod – the developer behind the name.
             </p>
@@ -341,9 +339,9 @@ export default function JitendraSinghPage() {
 
         {/* ===== FOOTER NOTE ===== */}
         <div className="relative z-10 text-center text-xs text-zinc-400 mt-16">
-          <Heart className="w-3 h-3 inline text-rose-400" /> Jitendra Singh = {identity.name}
+          <Heart className="w-3 h-3 inline text-rose-400" /> Jitendra Nimod = {identity.name}
         </div>
       </main>
     </>
   );
-        }
+}
