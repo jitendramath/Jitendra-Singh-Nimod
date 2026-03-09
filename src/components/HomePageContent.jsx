@@ -142,7 +142,7 @@ function Section({ title, icon, children }) {
 
 export default function HomePageContent() {
   return (
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-15 py-8 md:py-16">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-30 py-8 md:py-16">
       {/* Notice Banner */}
       <div className="mb-12 animate-fade-in">
         <div className="bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
