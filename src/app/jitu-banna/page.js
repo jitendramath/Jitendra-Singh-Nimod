@@ -1,20 +1,24 @@
 // src/app/jitu-banna/page.js
+// Ultra-premium light theme version with blue accents
 
 import Link from "next/link";
-import { 
-  UserCheck, 
-  SearchCode, 
-  MapPin, 
-  Code2, 
-  Globe2, 
-  ShieldCheck, 
+import {
+  UserCheck,
+  SearchCode,
+  MapPin,
+  Code2,
+  Globe2,
+  ShieldCheck,
   Link2,
   Database,
   ArrowRight,
-  Fingerprint
+  Fingerprint,
+  Github,
+  Linkedin,
+  Mail,
+  Instagram
 } from "lucide-react";
 
-// 📌 APPLE-TIER SEO METADATA
 export const metadata = {
   title: "Jitu Banna | Alias Verification | Jitendra Singh Nimod",
   description:
@@ -30,24 +34,21 @@ export const metadata = {
     "Jitu Banna website",
     "Jitu Banna developer Rajasthan"
   ],
-  alternates: {
-    canonical: "/jitu-banna"
-  }
+  alternates: { canonical: "/jitu-banna" },
+  openGraph: {
+    title: "Jitu Banna – Alias Verification",
+    description:
+      "Official alias verification page for Jitu Banna, the digital identity of Jitendra Singh Nimod.",
+    images: [{ url: "/images/og/jitu-banna-og.jpg", width: 1200, height: 630 }],
+  },
 };
 
-export default function Page() {
-
-  // 🧠 ADVANCED SEO: Explicit Alias Verification Schema
+export default function JituBannaPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Jitendra Singh Nimod",
-    alternateName: [
-      "Jitu Banna",
-      "Jitubanna",
-      "Jitu Nimod",
-      "JS Nimod"
-    ],
+    alternateName: ["Jitu Banna", "Jitubanna", "Jitu Nimod", "JS Nimod"],
     url: "https://jitubanna.com",
     jobTitle: "Full Stack Web Developer",
     description:
@@ -62,75 +63,84 @@ export default function Page() {
   };
 
   return (
-    <main className="min-h-screen bg-[#000000] text-zinc-400 font-sans selection:bg-indigo-500/30 pb-32 overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-white via-zinc-50 to-white text-zinc-700 font-sans selection:bg-[#2563EB]/30 selection:text-white relative overflow-hidden pb-20">
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ===== CINEMATIC HERO SECTION ===== */}
-      <header className="relative pt-32 pb-20 px-6">
-        {/* Deep Tech Indigo/Blue Glow */}
-        <div className="absolute top-0 right-1/4 translate-x-1/2 w-[600px] h-[500px] bg-indigo-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+      {/* Premium Background Blobs */}
+      <div className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#2563EB]/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-500/5 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(#2563EB_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.015] pointer-events-none"></div>
 
-        <div className="max-w-4xl mx-auto relative z-10 text-center animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium tracking-widest uppercase mb-8 shadow-[0_0_30px_rgba(99,102,241,0.15)]">
-            <UserCheck className="w-4 h-4" />
-            <span>Alias Verification Record</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 leading-[1.1]">
-            Jitu <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Banna</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-zinc-400 leading-relaxed font-light max-w-2xl mx-auto">
-            The globally recognized informal identifier resolving directly to full-stack developer <strong className="text-white font-medium">Jitendra Singh Nimod</strong>.
-          </p>
+      {/* ===== HERO SECTION ===== */}
+      <header className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-16 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#2563EB]/10 rounded-full text-[#2563EB] text-xs font-medium tracking-widest uppercase mb-8 shadow-sm">
+          <UserCheck className="w-4 h-4" />
+          <span>Alias Verification Record</span>
         </div>
+
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-zinc-800 mb-6 leading-[1.1]">
+          Jitu{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-purple-600">
+            Banna
+          </span>
+        </h1>
+
+        <p className="text-lg md:text-xl text-zinc-600 max-w-2xl mx-auto font-light">
+          The globally recognized informal identifier resolving directly to full-stack developer{' '}
+          <strong className="text-[#2563EB]">Jitendra Singh Nimod</strong>.
+        </p>
       </header>
 
-      {/* ===== MAIN ARCHITECTURE CONTENT ===== */}
-      <article className="max-w-4xl mx-auto px-6 space-y-24">
+      {/* ===== MAIN CONTENT ===== */}
+      <article className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 space-y-20">
 
-        {/* SEARCH INTENT RESOLUTION (THE SEO VAULT) */}
-        <section className="relative p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-br from-zinc-900/80 to-black border border-white/10 shadow-2xl overflow-hidden group">
-          <div className="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700">
-            <SearchCode className="w-64 h-64 text-indigo-400" />
-          </div>
-          <div className="relative z-10">
-            <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
-              <Database className="w-6 h-6 text-indigo-400" />
-              Query Resolution Matrix
-            </h2>
-            <p className="text-lg text-zinc-300 leading-relaxed font-light max-w-2xl">
-              Search algorithms process millions of queries for <strong>"Jitu Banna"</strong>. This cryptographic record ensures that whether queried with a space ("Jitu Banna") or without ("Jitubanna"), the search vectors converge identically on the engineering portfolio of Jitendra Singh Nimod.
-            </p>
+        {/* SEARCH INTENT RESOLUTION */}
+        <section className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#2563EB] via-purple-500 to-pink-500 blur-xl opacity-20 group-hover:opacity-30 transition duration-700 rounded-[2.5rem]"></div>
+          <div className="relative bg-white/90 backdrop-blur-xl border border-white/80 rounded-[2.5rem] p-8 md:p-12 shadow-2xl overflow-hidden">
+            <div className="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 group-hover:rotate-12 transition-all duration-700">
+              <SearchCode className="w-64 h-64 text-[#2563EB]" />
+            </div>
+            <div className="relative z-10">
+              <h2 className="text-2xl font-bold text-zinc-800 mb-6 flex items-center gap-3">
+                <Database className="w-6 h-6 text-[#2563EB]" />
+                Query Resolution Matrix
+              </h2>
+              <p className="text-lg text-zinc-600 leading-relaxed font-light max-w-2xl">
+                Search algorithms process millions of queries for <strong>"Jitu Banna"</strong>. This cryptographic record ensures that whether queried with a space ("Jitu Banna") or without ("Jitubanna"), the search vectors converge identically on the engineering portfolio of Jitendra Singh Nimod.
+              </p>
+            </div>
           </div>
         </section>
 
-        
-
-        {/* SEMANTICS (BENTO GRID) */}
+        {/* ETYMOLOGY */}
         <section>
-          <div className="flex items-center gap-3 mb-10">
-            <Fingerprint className="w-7 h-7 text-white" />
-            <h2 className="text-3xl font-bold text-white tracking-tight">The Etymology of the Alias</h2>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 bg-[#2563EB]/10 rounded-lg">
+              <Fingerprint className="w-5 h-5 text-[#2563EB]" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-zinc-800">The Etymology of the Alias</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-8 rounded-[2rem] border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] transition-colors flex flex-col justify-center">
-              <span className="text-sm font-medium text-zinc-500 uppercase tracking-widest mb-2">The Prefix</span>
-              <span className="block text-4xl font-black text-white mb-4">Jitu</span>
-              <p className="text-zinc-400 leading-relaxed text-sm">
-                A highly recognizable, frictionless abbreviation of the formal given name <strong>Jitendra</strong>. It serves as the primary hook for social and digital recall.
+            {/* Prefix */}
+            <div className="bg-white/80 backdrop-blur-sm border border-zinc-200 rounded-[2rem] p-8 hover:bg-white hover:border-[#2563EB]/30 hover:shadow-xl transition-all">
+              <span className="text-sm font-medium text-zinc-500 uppercase tracking-widest mb-2 block">The Prefix</span>
+              <span className="block text-4xl font-black text-zinc-800 mb-4">Jitu</span>
+              <p className="text-zinc-600 leading-relaxed text-sm">
+                A highly recognizable, frictionless abbreviation of the formal given name <strong className="text-[#2563EB]">Jitendra</strong>. It serves as the primary hook for social and digital recall.
               </p>
             </div>
-            
-            <div className="p-8 rounded-[2rem] border border-indigo-500/20 bg-indigo-500/5 hover:bg-indigo-500/10 transition-colors flex flex-col justify-center">
-              <span className="text-sm font-medium text-indigo-500/80 uppercase tracking-widest mb-2">The Suffix</span>
-              <span className="block text-4xl font-black text-indigo-400 mb-4">Banna</span>
-              <p className="text-zinc-400 leading-relaxed text-sm">
+
+            {/* Suffix */}
+            <div className="bg-white/80 backdrop-blur-sm border border-[#2563EB]/20 rounded-[2rem] p-8 hover:bg-white hover:border-[#2563EB]/50 hover:shadow-xl transition-all">
+              <span className="text-sm font-medium text-[#2563EB]/80 uppercase tracking-widest mb-2 block">The Suffix</span>
+              <span className="block text-4xl font-black text-[#2563EB] mb-4">Banna</span>
+              <p className="text-zinc-600 leading-relaxed text-sm">
                 An honorific deeply rooted in the cultural topography of Rajasthan. It anchors the digital identity to a specific geographic and cultural reality.
               </p>
             </div>
@@ -138,40 +148,42 @@ export default function Page() {
         </section>
 
         {/* THE DEVELOPER CONNECTION */}
-        <section className="relative p-10 md:p-14 rounded-[3rem] border border-white/[0.05] bg-zinc-900/50 backdrop-blur-xl overflow-hidden">
-          {/* Subtle noise texture */}
-          <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-
+        <section className="relative p-10 md:p-14 rounded-[3rem] border border-zinc-200 bg-white/80 backdrop-blur-xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB]/5 via-purple-500/5 to-transparent pointer-events-none"></div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8">
-              <Code2 className="w-7 h-7 text-cyan-400" />
-              <h2 className="text-3xl font-bold text-white tracking-tight">The Architect's Signature</h2>
+              <div className="p-2 bg-[#2563EB]/10 rounded-lg">
+                <Code2 className="w-6 h-6 text-[#2563EB]" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-zinc-800">The Architect's Signature</h2>
             </div>
-            
-            <p className="text-xl text-zinc-300 font-light leading-relaxed mb-8">
-              In modern internet architecture, <strong>Jitu Banna</strong> acts as the "public key," while the formal engineering logic is executed by the "private key" — Jitendra Singh Nimod.
+
+            <p className="text-xl text-zinc-600 font-light leading-relaxed mb-8">
+              In modern internet architecture, <strong className="text-[#2563EB]">Jitu Banna</strong> acts as the "public key," while the formal engineering logic is executed by the "private key" — Jitendra Singh Nimod.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 mt-10">
-              <div className="flex-1 p-6 rounded-2xl bg-black border border-white/5 shadow-inner">
-                <MapPin className="w-6 h-6 text-zinc-500 mb-4" />
-                <h3 className="text-white font-medium mb-2">Origin Server</h3>
-                <p className="text-sm text-zinc-400">Deployed and operating from Nimod Village, Rajasthan, India.</p>
+              <div className="flex-1 p-6 rounded-2xl bg-white border border-zinc-200 shadow-md">
+                <MapPin className="w-6 h-6 text-[#2563EB] mb-4" />
+                <h3 className="text-zinc-800 font-medium mb-2">Origin Server</h3>
+                <p className="text-sm text-zinc-500">Deployed and operating from Nimod Village, Rajasthan, India.</p>
               </div>
-              <div className="flex-1 p-6 rounded-2xl bg-black border border-white/5 shadow-inner">
-                <Globe2 className="w-6 h-6 text-zinc-500 mb-4" />
-                <h3 className="text-white font-medium mb-2">Tech Stack</h3>
-                <p className="text-sm text-zinc-400">Mastery in full-stack JavaScript, Next.js, and high-fidelity UI engineering.</p>
+              <div className="flex-1 p-6 rounded-2xl bg-white border border-zinc-200 shadow-md">
+                <Globe2 className="w-6 h-6 text-[#2563EB] mb-4" />
+                <h3 className="text-zinc-800 font-medium mb-2">Tech Stack</h3>
+                <p className="text-sm text-zinc-500">Mastery in full-stack JavaScript, Next.js, and high-fidelity UI engineering.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* VERIFIED ENDPOINTS (EXTERNAL PLATFORMS) */}
-        <section className="pt-10 border-t border-white/[0.05]">
-          <div className="flex items-center gap-3 mb-10">
-            <ShieldCheck className="w-7 h-7 text-white" />
-            <h2 className="text-3xl font-bold text-white tracking-tight">Verified Digital Endpoints</h2>
+        {/* VERIFIED ENDPOINTS */}
+        <section className="pt-10">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 bg-[#2563EB]/10 rounded-lg">
+              <ShieldCheck className="w-5 h-5 text-[#2563EB]" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-zinc-800">Verified Digital Endpoints</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -182,50 +194,105 @@ export default function Page() {
               { name: "Medium Publications", url: "https://medium.com/@i.jitendra.singh0", tag: "Articles" },
               { name: "Dev.to Profile", url: "https://dev.to/jitendrasingh", tag: "Community" }
             ].map((endpoint, i) => (
-              <a 
-                key={i} 
-                href={endpoint.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex flex-col justify-between p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.04] hover:border-white/20 transition-all min-h-[120px]"
+              <a
+                key={i}
+                href={endpoint.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col justify-between p-6 rounded-2xl bg-white/70 backdrop-blur-sm border border-zinc-200 hover:bg-white hover:border-[#2563EB]/30 hover:shadow-lg transition-all min-h-[120px]"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-md">{endpoint.tag}</span>
-                  <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-white group-hover:-rotate-45 transition-all" />
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-[#2563EB] bg-[#2563EB]/10 px-2 py-1 rounded-md">
+                    {endpoint.tag}
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-[#2563EB] group-hover:-rotate-45 transition-all" />
                 </div>
-                <span className="font-medium text-zinc-300 group-hover:text-white transition-colors">{endpoint.name}</span>
+                <span className="font-medium text-zinc-700 group-hover:text-zinc-900 transition-colors">
+                  {endpoint.name}
+                </span>
               </a>
             ))}
           </div>
         </section>
 
         {/* RELATED IDENTITY ALIASES */}
-        <section className="pt-10 pb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <Link2 className="w-6 h-6 text-white" />
-            <h2 className="text-2xl font-bold text-white tracking-tight">Connected Alias Nodes</h2>
+        <section className="pt-10">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-[#2563EB]/10 rounded-lg">
+              <Link2 className="w-5 h-5 text-[#2563EB]" />
+            </div>
+            <h2 className="text-2xl font-bold text-zinc-800">Connected Alias Nodes</h2>
           </div>
-          <p className="text-zinc-400 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-zinc-600 mb-8 max-w-2xl leading-relaxed">
             The following variants are cryptographically linked to the same human entity, ensuring unified search engine indexing across the web.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             {[
               { label: "Jitendra Singh Nimod", path: "/identity/jitendra-singh-nimod" },
               { label: "Jitu Nimod", path: "/identity/jitu-nimod" },
               { label: "JS Nimod", path: "/identity/js-nimod" },
               { label: "Who is Jitubanna", path: "/who-is-jitubanna" }
             ].map((node, i) => (
-              <Link 
-                key={i} 
+              <Link
+                key={i}
                 href={node.path}
-                className="px-6 py-3 rounded-full border border-white/10 bg-white/[0.02] hover:bg-white/10 text-sm font-medium text-zinc-300 hover:text-white transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+                className="px-5 py-2.5 bg-white/70 backdrop-blur-sm border border-zinc-200 rounded-full text-sm font-medium text-zinc-600 hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all shadow-sm"
               >
                 {node.label}
               </Link>
             ))}
           </div>
         </section>
+
+        {/* BOTTOM CTA */}
+        <section className="bg-gradient-to-br from-[#2563EB] to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Verify the Identity</h2>
+          <p className="text-white/80 max-w-2xl mx-auto mb-8">
+            Connect with the real Jitendra Singh Nimod across platforms.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://github.com/jitendra-math"
+              target="_blank"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#2563EB] font-semibold rounded-full hover:bg-zinc-100 hover:scale-105 transition-all shadow-lg"
+            >
+              <Github className="w-5 h-5" />
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/jitendra-singh07"
+              target="_blank"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full hover:bg-white/30 hover:scale-105 transition-all"
+            >
+              <Linkedin className="w-5 h-5" />
+              LinkedIn
+            </a>
+            <a
+              href="mailto:contact@jitubanna.com"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full hover:bg-white/30 hover:scale-105 transition-all"
+            >
+              <Mail className="w-5 h-5" />
+              Email
+            </a>
+          </div>
+        </section>
+
+        {/* BOTTOM SOCIAL */}
+        <div className="flex flex-wrap items-center justify-center gap-6 pt-8">
+          <a href="https://github.com/jitendra-math" target="_blank" className="text-zinc-400 hover:text-[#2563EB] transition">
+            <Github className="w-6 h-6" />
+          </a>
+          <a href="https://linkedin.com/in/jitendra-singh07" target="_blank" className="text-zinc-400 hover:text-[#2563EB] transition">
+            <Linkedin className="w-6 h-6" />
+          </a>
+          <a href="https://instagram.com/jitendra.07_7" target="_blank" className="text-zinc-400 hover:text-[#2563EB] transition">
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href="mailto:contact@jitubanna.com" className="text-zinc-400 hover:text-[#2563EB] transition">
+            <Mail className="w-6 h-6" />
+          </a>
+        </div>
 
       </article>
     </main>
