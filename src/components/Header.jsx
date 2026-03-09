@@ -34,7 +34,7 @@ export default function Header() {
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black">
+            <span className="text-xl font-black">
 
               <span className="text-blue-600">
                 Jitu
