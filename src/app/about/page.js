@@ -68,7 +68,7 @@ export default function AboutPage() {
     { year: "2009", event: "Born in Nimod village, Rajasthan", icon: Star },
     { year: "2022", event: "Completed Class 10 at N.B.N. Secondary School", icon: BookOpen },
     { year: "2024", event: "Completed Class 12 (PCM) – Kota Career School, Kuchaman City", icon: GraduationCap },
-    { year: "2024", event: "Started B.Sc Mathematics at Govt. Bangur College, Didwana", icon: School },
+    { year: "2024", event: "Started B.Sc Mathematics at Govt. Bangur College, Didwana", icon: GraduationCap },
     { year: "2025", event: "Founded JSS Originals – digital identity brand", icon: Rocket },
     { year: "2026", event: "Full Stack Developer & Freelancer", icon: Code2 },
   ];
