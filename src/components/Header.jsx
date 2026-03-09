@@ -34,9 +34,9 @@ export default function Header() {
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-black tracking-tight text-white">
+            <span className="text-xl font-black tracking-tight text-[#2563EB]">
               Jitu
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+              <span className="text-[#7C3AED]">
                 Banna
               </span>
             </span>
