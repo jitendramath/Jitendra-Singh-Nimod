@@ -83,7 +83,7 @@ export default function BestFriendPage() {
         </h1>
 
         <div className="relative my-8">
-  <h2 className="text-4xl sm:text-5xl md:text-7xl font-normal text-[#2563EB]">
+  <h2 className="text-4xl sm:text-5xl md:text-7xl font-normal text-rose-500">
     Nikhil Sambhariya
   </h2>
 </div>
@@ -245,24 +245,43 @@ export default function BestFriendPage() {
               to be in the same classroom to remain in the same chapter of life.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-rose-50 to-white border border-rose-200 flex flex-col items-center text-center shadow-lg">
-                <div className="p-4 bg-rose-100 rounded-full mb-4">
-                  <GraduationCap className="w-8 h-8 text-rose-500" />
-                </div>
-                <span className="text-xl font-bold text-zinc-800">Nikhil</span>
-                <span className="text-sm text-rose-500 mt-2 font-medium">Arts & Humanities</span>
-              </div>
-              
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-[#2563EB]/5 to-white border border-[#2563EB]/20 flex flex-col items-center text-center shadow-lg">
-                <div className="p-4 bg-[#2563EB]/10 rounded-full mb-4">
-                  <Sparkles className="w-8 h-8 text-[#2563EB]" />
-                </div>
-                <span className="text-xl font-bold text-zinc-800">Jitendra</span>
-                <span className="text-sm text-[#2563EB] mt-2 font-medium">Mathematics (PCM)</span>
-              </div>
-            </div>
-          </div>
+            <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto">
+
+  {/* Nikhil */}
+  <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 flex flex-col items-center text-center shadow-sm">
+    
+    <div className="p-2 bg-rose-100 rounded-lg mb-2">
+      <GraduationCap className="w-5 h-5 text-rose-500" />
+    </div>
+
+    <span className="text-sm font-semibold text-zinc-800">
+      Nikhil
+    </span>
+
+    <span className="text-xs text-rose-500 mt-1">
+      Arts & Humanities
+    </span>
+
+  </div>
+
+  {/* Jitendra */}
+  <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 flex flex-col items-center text-center shadow-sm">
+    
+    <div className="p-2 bg-blue-100 rounded-lg mb-2">
+      <Sparkles className="w-5 h-5 text-blue-600" />
+    </div>
+
+    <span className="text-sm font-semibold text-zinc-800">
+      Jitendra
+    </span>
+
+    <span className="text-xs text-blue-600 mt-1">
+      Mathematics (PCM)
+    </span>
+
+  </div>
+
+</div>
         </section>
 
         {/* ===== TRIBUTE SECTION ===== */}
@@ -289,7 +308,7 @@ export default function BestFriendPage() {
                 <p className="text-zinc-800 font-semibold text-lg md:text-xl tracking-wide">
                   Forever Friendship 🤝
                 </p>
-                <p className="text-base md:text-lg font-semibold bg-gradient-to-r from-[#2563EB] via-rose-500 to-purple-500 bg-clip-text text-transparent tracking-wider mt-2">
+                <p className="text-base md:text-xl font-semibold bg-gradient-to-r from-[#2563EB] via-rose-500 to-purple-500 bg-clip-text text-transparent tracking-wider mt-2">
                   @_nikhil_0518
                 </p>
               </a>
