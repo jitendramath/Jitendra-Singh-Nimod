@@ -142,7 +142,7 @@ function Section({ title, icon, children }) {
 
 export default function HomePageContent() {
   return (
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-15 py-8 md:py-16">
       {/* Notice Banner */}
       <div className="mb-12 animate-fade-in">
         <div className="bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
@@ -151,8 +151,8 @@ export default function HomePageContent() {
               <Info className="w-5 h-5 text-zinc-400" />
             </div>
             <p className="text-sm sm:text-base text-zinc-300">
-              <span className="text-zinc-400 font-medium">Identity Archive</span> –{" "}
-              <strong>Jitendra Singh Nimod</strong> (JS Nimod)
+              <span className="text-zinc-400 font-medium">This Website made for Identity Archive only</span> –{" "}
+              <strong>Jitendra Singh Nimod</strong>The official website not completely build yet.<br> work in progress...<br> Main Website will be soon
             </p>
           </div>
           <a
@@ -161,7 +161,7 @@ export default function HomePageContent() {
             rel="noopener noreferrer"
             className="group flex items-center gap-2 px-5 py-2 bg-white text-black text-sm font-semibold rounded-full hover:scale-105 transition-all"
           >
-            Visit Primary Site
+            Here
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
