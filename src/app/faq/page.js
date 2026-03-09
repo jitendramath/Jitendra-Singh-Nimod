@@ -1,5 +1,5 @@
 // src/app/faq/page.js
-// Server component – no "use client" directive
+// Updated server component – pass iconName string instead of component
 
 import Link from "next/link";
 import {
@@ -26,7 +26,7 @@ import {
   GraduationCap,
   ExternalLink,
 } from "lucide-react";
-import FAQAccordion from "../../components/FAQAccordion"; // 👈 client component
+import FAQAccordion from "../../components/FAQAccordion";
 
 export const metadata = {
   title: "Frequently Asked Questions – Jitendra Singh Nimod",
@@ -49,11 +49,11 @@ export const metadata = {
   },
 };
 
-// FAQ data with categories and expanded answers (includes higher prices)
+// FAQ data with iconName strings instead of component references
 const faqCategories = [
   {
     category: "General Questions",
-    icon: HelpCircle,
+    iconName: "HelpCircle",
     questions: [
       {
         q: "Who is Jitendra Singh Nimod?",
@@ -71,7 +71,7 @@ const faqCategories = [
   },
   {
     category: "Services & Pricing",
-    icon: DollarSign,
+    iconName: "DollarSign",
     questions: [
       {
         q: "What services do you offer?",
@@ -93,7 +93,7 @@ const faqCategories = [
   },
   {
     category: "Location & Availability",
-    icon: MapPin,
+    iconName: "MapPin",
     questions: [
       {
         q: "Do you work with clients in Kuchaman City, Didwana, and Nimod?",
@@ -111,7 +111,7 @@ const faqCategories = [
   },
   {
     category: "Technical Questions",
-    icon: Code2,
+    iconName: "Code2",
     questions: [
       {
         q: "What technologies do you use?",
@@ -129,7 +129,7 @@ const faqCategories = [
   },
   {
     category: "Business & Collaboration",
-    icon: Briefcase,
+    iconName: "Briefcase",
     questions: [
       {
         q: "How does the process work?",
@@ -147,7 +147,7 @@ const faqCategories = [
   },
   {
     category: "SEO & Performance",
-    icon: Zap,
+    iconName: "Zap",
     questions: [
       {
         q: "Will my website rank on Google?",
