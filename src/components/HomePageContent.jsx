@@ -1,7 +1,10 @@
+// src/components/HomePageContent.jsx
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -42,10 +45,12 @@ import {
   Heart,
   Rocket,
   Compass,
+  Activity,
+  Zap,
 } from "lucide-react";
 import identity from "../data/identity";
 
-// ---------- Link Groups ----------
+// ---------- Link Groups (unchanged) ----------
 const corePages = [
   { name: "About", href: "/about", icon: User, desc: "Learn my story" },
   { name: "Contact", href: "/contact", icon: Mail, desc: "Get in touch" },
@@ -132,42 +137,42 @@ const socialLinks = [
   { name: "RSS Feed", href: "/rss.xml", icon: Rss, internal: true },
 ];
 
-// Helper Section component for bento grid
-function BentoCard({ children, className = "", colSpan = "" }) {
-  return (
-    <div className={`glass-card bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl p-6 shadow-premium hover:shadow-strong transition-all duration-300 ${colSpan} ${className}`}>
-      {children}
-    </div>
-  );
-}
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
-function IconPill({ icon: Icon, label, href, external = false }) {
-  const content = (
-    <div className="flex items-center gap-2 px-3 py-2 bg-white/80 rounded-full border border-zinc-200 hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group">
-      <Icon className="w-4 h-4 text-zinc-600 group-hover:text-blue-600" />
-      <span className="text-sm font-medium text-zinc-700 group-hover:text-zinc-900">{label}</span>
-    </div>
-  );
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
 
-  if (external) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
-        {content}
-      </a>
-    );
-  }
-  return (
-    <Link href={href} className="inline-block">
-      {content}
-    </Link>
-  );
-}
+const scaleOnHover = { scale: 1.02, transition: { duration: 0.2 } };
 
 export default function HomePageContent() {
+  const heroRef = useRef(null);
+  const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
+
+  // Parallax effect for hero image
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
+
   return (
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 md:pt-28 md:pb-20">
-      {/* Notice Banner */}
-      <div className="mb-12 animate-fade-in">
+      {/* Animated background particle effect (optional – could use a library, but we'll keep it simple) */}
+      
+      {/* Notice Banner with animation */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-12"
+      >
         <div className="glass-card bg-white/80 backdrop-blur-xl border border-white/90 rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-100 rounded-full">
@@ -178,30 +183,42 @@ export default function HomePageContent() {
               <strong>Jitendra Singh Nimod (JS Nimod)</strong>. Work in progress. Full version launching soon.
             </p>
           </div>
-          <a
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             href="https://jitubanna.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all"
+            className="group flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold rounded-full hover:shadow-lg transition-all"
           >
             Primary Site
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
 
-      {/* ===== BENTO GRID HERO ===== */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      {/* Hero Section with parallax */}
+      <motion.div
+        ref={heroRef}
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isHeroInView ? "visible" : "hidden"}
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+      >
         {/* Large intro card */}
-        <BentoCard className="md:col-span-2 flex flex-col md:flex-row items-center gap-6 p-8">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl shrink-0">
+        <motion.div
+          variants={fadeInUp}
+          whileHover={scaleOnHover}
+          className="md:col-span-2 flex flex-col md:flex-row items-center gap-6 p-8 bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl shadow-premium hover:shadow-strong transition-all duration-300"
+        >
+          <motion.div style={{ y, opacity }} className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl shrink-0">
             <Image
               src={identity.images?.main || "/placeholder.jpg"}
               alt="Jitendra Singh Nimod"
               fill
               className="object-cover"
             />
-          </div>
+          </motion.div>
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Sparkles className="w-5 h-5 text-blue-500" />
@@ -220,10 +237,14 @@ export default function HomePageContent() {
               <IconPill icon={Briefcase} label="JSS Originals" href="/jss-originals" />
             </div>
           </div>
-        </BentoCard>
+        </motion.div>
 
         {/* Quick links / stats */}
-        <BentoCard className="flex flex-col justify-between">
+        <motion.div
+          variants={fadeInUp}
+          whileHover={scaleOnHover}
+          className="flex flex-col justify-between p-8 bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl shadow-premium hover:shadow-strong transition-all duration-300"
+        >
           <div className="flex items-center gap-2 mb-4">
             <Rocket className="w-5 h-5 text-purple-500" />
             <h3 className="font-semibold text-zinc-800">Quick Actions</h3>
@@ -245,61 +266,60 @@ export default function HomePageContent() {
           <div className="mt-4 pt-4 border-t border-zinc-200">
             <p className="text-sm text-zinc-500">📍 Based in Rajasthan, India</p>
           </div>
-        </BentoCard>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* ===== BENTO GRID SECTIONS ===== */}
-      <div className="space-y-16">
-        
-        {/* Row 1: Core Identity (featured) */}
-        <div>
-          <div className="flex items-center gap-2 mb-6">
-            <Star className="w-5 h-5 text-amber-500" />
-            <h2 className="text-2xl font-semibold text-zinc-800">Core Identity</h2>
-          </div>
+      {/* Rest of the sections with scroll-triggered animations */}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        className="space-y-16"
+      >
+        {/* Core Identity */}
+        <Section title="Core Identity" icon={Star} color="amber">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {corePages.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group flex items-start gap-3 p-4 bg-white/80 border border-zinc-200/80 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-md transition-all"
-              >
-                <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-100 transition">
-                  <link.icon className="w-5 h-5" />
-                </div>
-                <div className="flex-1">
-                  <span className="font-medium text-zinc-800 group-hover:text-blue-700">{link.name}</span>
-                  {link.desc && <p className="text-xs text-zinc-500 mt-1">{link.desc}</p>}
-                </div>
-                <ChevronRight className="w-4 h-4 text-zinc-400 group-hover:text-blue-600 group-hover:translate-x-1 transition flex-shrink-0 mt-1" />
-              </Link>
+              <motion.div key={link.href} variants={fadeInUp} whileHover={{ scale: 1.02 }}>
+                <Link
+                  href={link.href}
+                  className="group flex items-start gap-3 p-4 bg-white/80 border border-zinc-200/80 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-md transition-all"
+                >
+                  <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-100 transition">
+                    <link.icon className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium text-zinc-800 group-hover:text-blue-700">{link.name}</span>
+                    {link.desc && <p className="text-xs text-zinc-500 mt-1">{link.desc}</p>}
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-zinc-400 group-hover:text-blue-600 group-hover:translate-x-1 transition flex-shrink-0 mt-1" />
+                </Link>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        {/* Row 2: Name & Alias Pages (compact grid) */}
-        <div>
-          <div className="flex items-center gap-2 mb-6">
-            <Hash className="w-5 h-5 text-indigo-500" />
-            <h2 className="text-2xl font-semibold text-zinc-800">Name & Alias Pages</h2>
-          </div>
+        {/* Name & Alias Pages */}
+        <Section title="Name & Alias Pages" icon={Hash} color="indigo">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {aliasPages.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex flex-col items-center text-center p-3 bg-white/70 border border-zinc-200/70 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-sm transition-all group"
-              >
-                <link.icon className="w-5 h-5 text-zinc-600 group-hover:text-blue-600 mb-2" />
-                <span className="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
-              </Link>
+              <motion.div key={link.href} variants={fadeInUp} whileHover={{ scale: 1.02 }}>
+                <Link
+                  href={link.href}
+                  className="flex flex-col items-center text-center p-3 bg-white/70 border border-zinc-200/70 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-sm transition-all group"
+                >
+                  <link.icon className="w-5 h-5 text-zinc-600 group-hover:text-blue-600 mb-2" />
+                  <span className="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
+                </Link>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </Section>
 
-        {/* Row 3: Identity Cluster + Location (mixed bento) */}
+        {/* Identity Cluster + Location */}
         <div className="grid md:grid-cols-3 gap-6">
-          <BentoCard className="md:col-span-2">
+          <motion.div variants={fadeInUp} className="md:col-span-2 p-6 bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl shadow-premium hover:shadow-strong transition-all">
             <div className="flex items-center gap-2 mb-4">
               <Fingerprint className="w-5 h-5 text-purple-500" />
               <h3 className="font-semibold text-zinc-800">Identity Cluster (/identity/*)</h3>
@@ -316,9 +336,9 @@ export default function HomePageContent() {
                 </Link>
               ))}
             </div>
-          </BentoCard>
+          </motion.div>
 
-          <BentoCard>
+          <motion.div variants={fadeInUp} className="p-6 bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl shadow-premium hover:shadow-strong transition-all">
             <div className="flex items-center gap-2 mb-4">
               <MapPin className="w-5 h-5 text-emerald-500" />
               <h3 className="font-semibold text-zinc-800">Location Pages</h3>
@@ -341,119 +361,96 @@ export default function HomePageContent() {
                 View all <ChevronRight className="w-3 h-3" />
               </Link>
             </div>
-          </BentoCard>
+          </motion.div>
         </div>
 
-        {/* Row 4: Brand + Blog + Special */}
+        {/* Brand + Blog + Special */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <BentoCard>
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-5 h-5 text-amber-500" />
-              <h3 className="font-semibold text-zinc-800">Brand & Projects</h3>
-            </div>
-            <div className="space-y-2">
-              {brandPages.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="flex items-center gap-2 p-2 bg-white/80 rounded-lg hover:bg-blue-50 transition group"
-                >
-                  <link.icon className="w-4 h-4 text-zinc-500 group-hover:text-blue-600" />
-                  <span className="text-sm text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
-                </Link>
-              ))}
-            </div>
-          </BentoCard>
-
-          <BentoCard>
-            <div className="flex items-center gap-2 mb-4">
-              <Newspaper className="w-5 h-5 text-rose-500" />
-              <h3 className="font-semibold text-zinc-800">Blog & Articles</h3>
-            </div>
-            <div className="space-y-2">
-              {blogPosts.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="flex items-center gap-2 p-2 bg-white/80 rounded-lg hover:bg-blue-50 transition group"
-                >
-                  <link.icon className="w-4 h-4 text-zinc-500 group-hover:text-blue-600" />
-                  <span className="text-sm text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
-                </Link>
-              ))}
-            </div>
-          </BentoCard>
-
-          <BentoCard>
-            <div className="flex items-center gap-2 mb-4">
-              <Link2 className="w-5 h-5 text-cyan-500" />
-              <h3 className="font-semibold text-zinc-800">Special Identity Pages</h3>
-            </div>
-            <div className="space-y-2">
-              {specialPages.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="flex items-center gap-2 p-2 bg-white/80 rounded-lg hover:bg-blue-50 transition group"
-                >
-                  <link.icon className="w-4 h-4 text-zinc-500 group-hover:text-blue-600" />
-                  <span className="text-sm text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
-                </Link>
-              ))}
-            </div>
-          </BentoCard>
+          {[brandPages, blogPosts, specialPages].map((group, idx) => (
+            <motion.div key={idx} variants={fadeInUp} className="p-6 bg-white/70 backdrop-blur-md border border-white/80 rounded-2xl shadow-premium hover:shadow-strong transition-all">
+              <div className="flex items-center gap-2 mb-4">
+                {idx === 0 && <Sparkles className="w-5 h-5 text-amber-500" />}
+                {idx === 1 && <Newspaper className="w-5 h-5 text-rose-500" />}
+                {idx === 2 && <Link2 className="w-5 h-5 text-cyan-500" />}
+                <h3 className="font-semibold text-zinc-800">
+                  {idx === 0 ? "Brand & Projects" : idx === 1 ? "Blog & Articles" : "Special Identity Pages"}
+                </h3>
+              </div>
+              <div className="space-y-2">
+                {group.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center gap-2 p-2 bg-white/80 rounded-lg hover:bg-blue-50 transition group"
+                  >
+                    <link.icon className="w-4 h-4 text-zinc-500 group-hover:text-blue-600" />
+                    <span className="text-sm text-zinc-700 group-hover:text-zinc-900">{link.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Row 5: Social Footprint */}
-        <div>
-          <div className="flex items-center gap-2 mb-6">
-            <Globe className="w-5 h-5 text-sky-500" />
-            <h2 className="text-2xl font-semibold text-zinc-800">Official Social Footprint</h2>
-          </div>
+        {/* Social Footprint */}
+        <Section title="Official Social Footprint" icon={Globe} color="sky">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               if (link.internal) {
                 return (
-                  <Link
-                    key={link.name}
+                  <motion.div key={link.name} variants={fadeInUp} whileHover={{ scale: 1.05 }}>
+                    <Link
+                      href={link.href}
+                      className="flex flex-col items-center p-4 bg-white/80 border border-zinc-200/80 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-md transition-all group"
+                    >
+                      <Icon className="w-6 h-6 mb-2 text-zinc-600 group-hover:text-blue-600" />
+                      <span className="text-xs font-medium text-zinc-600 group-hover:text-zinc-800">{link.name}</span>
+                    </Link>
+                  </motion.div>
+                );
+              }
+              return (
+                <motion.div key={link.name} variants={fadeInUp} whileHover={{ scale: 1.05 }}>
+                  <a
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex flex-col items-center p-4 bg-white/80 border border-zinc-200/80 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-md transition-all group"
                   >
                     <Icon className="w-6 h-6 mb-2 text-zinc-600 group-hover:text-blue-600" />
                     <span className="text-xs font-medium text-zinc-600 group-hover:text-zinc-800">{link.name}</span>
-                  </Link>
-                );
-              }
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center p-4 bg-white/80 border border-zinc-200/80 rounded-xl hover:bg-white hover:border-blue-200 hover:shadow-md transition-all group"
-                >
-                  <Icon className="w-6 h-6 mb-2 text-zinc-600 group-hover:text-blue-600" />
-                  <span className="text-xs font-medium text-zinc-600 group-hover:text-zinc-800">{link.name}</span>
-                </a>
+                  </a>
+                </motion.div>
               );
             })}
           </div>
-        </div>
-      </div>
+        </Section>
+      </motion.div>
 
-      {/* Closing / About text */}
-      <section className="mt-24 text-center max-w-3xl mx-auto">
+      {/* Footer-like closing statement */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-24 text-center max-w-3xl mx-auto"
+      >
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-800 mb-4">
           Who is Jitendra Singh Nimod?
         </h2>
         <p className="text-zinc-600 leading-relaxed text-base sm:text-lg font-light">
           Also known as <strong>JS Nimod</strong>, <strong>Jitu Nimod</strong>, and <strong>Jitubanna</strong>, he is a developer dedicated to merging high-performance architecture with premium, user-centric design. From building comprehensive digital identity systems to crafting specialized developer tools, his work emphasizes both aesthetic minimalism and robust SEO architecture.
         </p>
-      </section>
+      </motion.section>
 
       {/* Back to top button */}
-      <div className="mt-16 text-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-16 text-center"
+      >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="inline-flex items-center gap-2 px-5 py-2 bg-white/80 border border-zinc-200 rounded-full text-sm text-zinc-700 hover:bg-white hover:border-blue-200 hover:shadow-md hover:text-blue-700 transition-all"
@@ -461,7 +458,42 @@ export default function HomePageContent() {
           <ChevronUp className="w-4 h-4" />
           Back to top
         </button>
-      </div>
+      </motion.div>
     </div>
+  );
+}
+
+// Helper components
+function IconPill({ icon: Icon, label, href, external = false }) {
+  const content = (
+    <div className="flex items-center gap-2 px-3 py-2 bg-white/80 rounded-full border border-zinc-200 hover:border-blue-300 hover:bg-white hover:shadow-md transition-all group">
+      <Icon className="w-4 h-4 text-zinc-600 group-hover:text-blue-600" />
+      <span className="text-sm font-medium text-zinc-700 group-hover:text-zinc-900">{label}</span>
+    </div>
+  );
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+        {content}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className="inline-block">
+      {content}
+    </Link>
+  );
+}
+
+function Section({ title, icon: Icon, color, children }) {
+  return (
+    <motion.div variants={fadeInUp}>
+      <div className="flex items-center gap-2 mb-6">
+        <Icon className={`w-5 h-5 text-${color}-500`} />
+        <h2 className="text-2xl font-semibold text-zinc-800">{title}</h2>
+      </div>
+      {children}
+    </motion.div>
   );
 }
