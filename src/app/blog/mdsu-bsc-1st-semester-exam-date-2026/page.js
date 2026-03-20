@@ -1,7 +1,7 @@
 // src/app/blog/mdsu-bsc-1st-semester-exam-date-2026/page.js
 
 import Link from "next/link";
-import StructuredData from "@/components/StructuredData";
+import StructuredData from "../../../components/StructuredData";
 import {
   ArrowLeft,
   CalendarDays,
